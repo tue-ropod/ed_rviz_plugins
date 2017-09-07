@@ -1,0 +1,24 @@
+<package>
+  <name>ed_rviz_plugins</name>
+  <version>0.9.1</version>
+  <description>
+     ED plugins for RViz.
+  </description>
+  <maintainer email="reinzor@gmail.com">Rein Appeldoorn</maintainer>
+  <license>MIT</license>
+
+  <url>http://ros.org/wiki/rviz_plugins</url>
+  <author>Rein Appeldoorn</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <build_depend>rviz</build_depend>
+  <run_depend>rviz</run_depend>
+
+  <build_depend>ed_gui_server</build_depend>
+  <run_depend>ed_gui_server</run_depend>
+
+  <export>
+      <rviz plugin="${prefix}/plugin_description.xml"/>
+  </export>
+</package>
