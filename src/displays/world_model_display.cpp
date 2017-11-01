@@ -64,7 +64,7 @@ namespace ed_rviz_plugins
 
 WorldModelDisplay::WorldModelDisplay()
 {
-    service_name_property_ = new rviz::StringProperty( "Mesh query service name", "ed/query/meshes", "Service name for querying meshes", this, SLOT( updateProperties() ));
+    service_name_property_ = new rviz::StringProperty( "Mesh query service name", "ed/gui/query_meshes", "Service name for querying meshes", this, SLOT( updateProperties() ));
 
     entity_label_opacity_property_ = new rviz::FloatProperty("Entity label opacity", 1.0, "Opacity of entity label", this, SLOT(updateProperties()));
     entity_area_label_opacity_property_ = new rviz::FloatProperty("Entity Area label opacity", 0.4, "Opacity of entity label", this, SLOT(updateProperties()));
@@ -148,12 +148,13 @@ void WorldModelDisplay::processMessage(const ed_gui_server::EntityInfos::ConstPt
             visual->setConvexHull( info.polygon ); // Convex hull
 
         // Set the color
-        double r,g,b;
+        double r,g,b,a;
         if (info.color.a != 0) // If a color specified, take color from the info
         {
             r = (float)info.color.r / 255;
             g = (float)info.color.g / 255;
             b = (float)info.color.b / 255;
+	    a = (float)info.color.a / 255;
         }
         else // random color
         {
@@ -161,8 +162,10 @@ void WorldModelDisplay::processMessage(const ed_gui_server::EntityInfos::ConstPt
             r = COLORS[i_color][0];
             g = COLORS[i_color][1];
             b = COLORS[i_color][2];
+	    a = (float) 1.0;
         }
-        visual->setColor ( Ogre::ColourValue(r, g, b, 1.0f), entity_label_opacity_property_->getFloat(),
+        
+        visual->setColor ( Ogre::ColourValue(r, g, b, a), entity_label_opacity_property_->getFloat(),
                            entity_area_opacity_property_->getFloat(), entity_area_label_opacity_property_->getFloat());
 
         std::string label;
