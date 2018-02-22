@@ -191,7 +191,7 @@ void EntityVisual::setConvexHull ( const ed_gui_server::Polygon& polygon )
 void EntityVisual::setLabel (const std::string& label )
 {
     label_->setTextAlignment(rviz::MovableText::H_CENTER, rviz::MovableText::V_CENTER);
-    label_->setCharacterHeight(0.05);
+    label_->setCharacterHeight(0.3);
     label_->setCaption(label);
 }
 
