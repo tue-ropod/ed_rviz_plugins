@@ -140,6 +140,9 @@ void EntityVisual::setEntityMeshAndAreas(const ed_gui_server::EntityMeshAndAreas
 
 void EntityVisual::setColor(Ogre::ColourValue c, double entity_label_opacity, double area_opacity, double area_label_opacity)
 {
+    convex_hull_->setColor(c.r, c.g, c.b, c.a);
+    mesh_->setColor(c);
+    
     label_->setColor(Ogre::ColourValue(1.0f, 1.0f, 1.0f, entity_label_opacity));
 
     for (auto& label : area_labels_)
@@ -147,11 +150,7 @@ void EntityVisual::setColor(Ogre::ColourValue c, double entity_label_opacity, do
 
     c.a = area_opacity;
     for (auto& mesh : area_meshes_)
-        mesh->setColor(c);
-
-    c.a = 1.0;
-    convex_hull_->setColor(c.r, c.g, c.b, c.a);
-    mesh_->setColor(c);
+        mesh->setColor(c);   
 }
 
 void EntityVisual::setConvexHull ( const ed_gui_server::Polygon& polygon )
