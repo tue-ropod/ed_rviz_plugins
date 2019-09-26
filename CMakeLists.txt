@@ -9,6 +9,8 @@ catkin_package()
 include_directories(${catkin_INCLUDE_DIRS})
 link_directories(${catkin_LIBRARY_DIRS})
 
+#set(CMAKE_BUILD_TYPE "RelWithDebInfo")
+
 # Enable automoc for generating QT moc files
 set(CMAKE_AUTOMOC ON)
 ## This plugin includes Qt widgets, so we must include Qt.
