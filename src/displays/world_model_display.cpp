@@ -169,7 +169,7 @@ void WorldModelDisplay::processMessage(const ed_gui_server::EntityInfos::ConstPt
                            entity_area_opacity_property_->getFloat(), entity_area_label_opacity_property_->getFloat());
 
         std::string label;
-        label = info.id.substr(0, 6);
+        label = info.id.substr(0, 10);
 
         if (!info.type.empty())
             label += " (" + info.type + ")";
