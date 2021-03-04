@@ -4,7 +4,7 @@
 ## First start with some standard catkin stuff.
 cmake_minimum_required(VERSION 2.8.3)
 project(ed_rviz_plugins)
-set(CMAKE_BUILD_TYPE "RelWithDebInfo")
+#set(CMAKE_BUILD_TYPE "RelWithDebInfo")
 
 find_package(catkin REQUIRED COMPONENTS rviz ed_gui_server)
 catkin_package()
